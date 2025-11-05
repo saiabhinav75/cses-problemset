@@ -1,20 +1,37 @@
-# CXX = g++
-# CXXFLAGS = -std=c++17 -I/opt/homebrew/include
-# LDFLAGS = -L/opt/homebrew/lib -lczmq -lzmq
+# Compiler and flags
+CXX := g++
+CXXFLAGS := -std=c++17 -O2 -Wall
 
-# CLIENT_SRC = client.cpp
-# SERVER_SRC = server.cpp
+# Input file (passed as argument)
+FILE ?=
+# Extract filename without path and extension
+FILENAME := $(basename $(notdir $(FILE)))
+# Output directory and file
+OUTDIR := outputs
+OUTFILE := $(OUTDIR)/$(FILENAME).exe
 
-# CLIENT_OUT = outputs/client.exe
-# SERVER_OUT = outputs/server.exe
+# Default target
+.PHONY: run
+run:
+ifeq ($(FILE),)
+	@echo "❌ Usage: make run FILE=path/to/source.cpp"
+else
+	@echo "🔧 Compiling $(FILE)..."
+	@$(CXX) $(CXXFLAGS) $(FILE) -o $(OUTFILE)
+	@if [ $$? -eq 0 ]; then \
+		echo "✅ Build successful: $(OUTFILE)"; \
+		echo "🚀 Running program..."; \
+		echo "--------------------------------"; \
+		./$(OUTFILE); \
+		echo "\n--------------------------------"; \
+	else \
+		echo "❌ Compilation failed."; \
+	fi
+endif
 
-# all: $(CLIENT_OUT) $(SERVER_OUT)
-
-# $(CLIENT_OUT): $(CLIENT_SRC)
-# 	$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
-
-# $(SERVER_OUT): $(SERVER_SRC)
-# 	$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
-
-# clean:
-# 	rm -f outputs/*.exe
+# Clean up build files
+.PHONY: clean
+clean:
+	@echo "🧹 Cleaning outputs..."
+	@rm -rf $(OUTDIR)
+	@echo "✅ Done."

@@ -10,7 +10,6 @@ int main(){
     cin>>n;
     vector<int> vec(n*2);
     for(int i=0;i<n*2;i = i + 2){
-        int a,l;
         cin>>vec[i]>>vec[i + 1];
         vec[i + 1] = -1 * vec[i + 1];
     }
