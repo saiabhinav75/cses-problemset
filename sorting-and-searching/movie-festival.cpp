@@ -15,6 +15,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>vec[i][0]>>vec[i][1];
     }
+    // Note: Interval Inclusion Principle here
     sort(vec.begin(),vec.end(),comparator);
     int max_count = 1;
     int cur = 0;

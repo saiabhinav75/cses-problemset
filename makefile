@@ -16,6 +16,7 @@ run:
 ifeq ($(FILE),)
 	@echo "❌ Usage: make run FILE=path/to/source.cpp"
 else
+	@mkdir -p $(OUTDIR)
 	@echo "🔧 Compiling $(FILE)..."
 	@$(CXX) $(CXXFLAGS) $(FILE) -o $(OUTFILE)
 	@if [ $$? -eq 0 ]; then \

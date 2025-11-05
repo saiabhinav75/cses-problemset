@@ -5,6 +5,7 @@ int main()
 {
     int n, m;
     cin >> n >> m;
+    // Note: Can also use multiset
     set<pair<int,int> > sett;
     for (int i = 0; i < n; i++)
     {

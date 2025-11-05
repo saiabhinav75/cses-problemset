@@ -13,6 +13,7 @@ int main(){
         cin>>vec[i]>>vec[i + 1];
         vec[i + 1] = -1 * vec[i + 1];
     }
+    // Note: Interval Exclusion, Mutual Exclusion Principle here.
     sort(vec.begin(),vec.end(),comparator);
     int cur_count = 0;
     int max_count = 0;

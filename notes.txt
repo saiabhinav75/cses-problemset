@@ -1,0 +1,11 @@
+Notes:
+- max value, don't use INT_MAX, check the constraits and set a max value: 1e7 something like this
+- unordered_map takes O(n) time complexity for worst case, so using sorted map can be useful
+- Use long long
+
+
+New Data Structures:
+- multiset
+
+Dynamic Programming:
+- Bottom Top appraoch
