@@ -15,7 +15,7 @@ int main() {
     for (int coin : vec) {
             if (j + coin <= target) {
                 dp[j + coin] += dp[j];
-                if (dp[j + coin] >= mod) dp[j + coin] -= mod; // Note: modulo operation is slower operation
+                if (dp[j + coin] >= mod) dp[j + coin] -= mod; // Note: modulo operation is slower operation without const
             }
         }
     }
