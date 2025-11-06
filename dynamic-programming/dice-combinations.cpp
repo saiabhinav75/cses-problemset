@@ -54,6 +54,7 @@ long long sumOfVector(vector<long long>& vec){
 long long solution(int n){
     vector<long long> vec;
     vec.push_back(1);
+    // Note: Top - Bottom tabulation
     for(int i = 1;i<=n;i++){
         long long sum = sumOfVector(vec);
         if(vec.size() == 6)

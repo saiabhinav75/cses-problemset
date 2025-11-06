@@ -29,7 +29,7 @@ using namespace std;
 using ll = long long;
 int mod = 1e9 + 7;
 
-// Note: Bottom - Top appraoch
+// Note: Bottom - Top appraoch tabulation
 int solve(int target, vector<int>& vec){
     vector<int> dp(target + 1,1e7); // using INT_MAX
     dp[target] = 0;
