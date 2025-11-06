@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 using ll = long long;
-int mod = 1e9 + 7;
+int mod = 1e9 + 7; // Note: const stores in compile time memory
 int main() {
     int n,target;
     cin>>n>>target;
@@ -15,7 +15,7 @@ int main() {
     for (int coin : vec) {
             if (j + coin <= target) {
                 dp[j + coin] += dp[j];
-                if (dp[j + coin] >= mod) dp[j + coin] -= mod;
+                if (dp[j + coin] >= mod) dp[j + coin] -= mod; // Note: modulo operation is slower operation
             }
         }
     }
