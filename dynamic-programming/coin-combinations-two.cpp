@@ -50,7 +50,7 @@ int main() {
     vector<ll> dp(target+1);
     dp[0] = 1;
     // sort(coins.begin(),coins.end());
-    for(int j = 0; j < n ; j++){ // Note: This loop comes first. These are ordered so, there won't be repetition
+    for(int j = 0; j < n ; j++){ // Note: This loop comes first. These are ordered so, there won't be repetition, the same coin is not repeated at one particular value
         for(int i=0;i<=target;i++){
             if(i + coins[j] <= target){
                 dp[i + coins[j]] += dp[i];
